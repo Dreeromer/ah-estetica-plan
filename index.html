@@ -725,6 +725,7 @@ strong{font-weight:500; color:var(--ink)}
 
 <script>
 (function(){
+  if('scrollRestoration' in history) history.scrollRestoration = 'manual';
   var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
   var rail = document.getElementById('rail');
   var cur = document.getElementById('cur');
@@ -753,11 +754,23 @@ strong{font-weight:500; color:var(--ink)}
   }, {threshold:[0.15,0.6]});
   slides.forEach(function(s){ io.observe(s); });
 
+  // El índice se deriva de la posición real de scroll, no del observador:
+  // durante un desplazamiento suave el observador reporta láminas intermedias
+  // y la navegación terminaba saltando hacia atrás.
+  function current(){
+    var y = window.scrollY, best = 0, dist = Infinity;
+    slides.forEach(function(s, i){
+      var d = Math.abs(s.offsetTop - y);
+      if(d < dist){ dist = d; best = i; }
+    });
+    return best;
+  }
   function goto(dir){
-    var i = dots.findIndex(function(d){ return d.getAttribute('aria-current')==='true'; });
-    var n = Math.min(slides.length-1, Math.max(0, i + dir));
+    var n = Math.min(slides.length-1, Math.max(0, current() + dir));
     slides[n].scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto':'smooth'});
   }
+  window.addEventListener('load', function(){ window.scrollTo(0,0); });
+
   document.addEventListener('keydown', function(e){
     if(['ArrowRight','ArrowDown','PageDown',' '].indexOf(e.key)>-1){ e.preventDefault(); goto(1); }
     if(['ArrowLeft','ArrowUp','PageUp'].indexOf(e.key)>-1){ e.preventDefault(); goto(-1); }
