@@ -98,12 +98,13 @@ body{
 .counter b{color:var(--gold); font-weight:500}
 
 /* ---------- slides ---------- */
-html{
-  scroll-snap-type:y mandatory; scroll-behavior:smooth;
-}
+/* Sin scroll-snap a propósito: con snap obligatorio el navegador ignora los
+   desplazamientos programáticos y la navegación por teclado se rompe. Las
+   láminas ocupan la altura de pantalla y se salta entre ellas con scrollIntoView. */
+html{scroll-behavior:smooth}
 .deck{display:block}
 .slide{
-  min-height:100svh; scroll-snap-align:start; scroll-snap-stop:always;
+  min-height:100svh;
   display:flex; flex-direction:column; justify-content:center;
   padding:72px 56px 72px 96px; position:relative;
 }
@@ -321,7 +322,7 @@ strong{font-weight:500; color:var(--ink)}
 .slide.on .rv:nth-child(5){transition-delay:.28s}
 @media (prefers-reduced-motion:reduce){
   .rv{opacity:1; transform:none; transition:none}
-  html{scroll-behavior:auto; scroll-snap-type:none}
+  html{scroll-behavior:auto}
 }
 
 /* ---------- responsive ---------- */
