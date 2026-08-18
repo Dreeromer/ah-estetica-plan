@@ -98,12 +98,12 @@ body{
 .counter b{color:var(--gold); font-weight:500}
 
 /* ---------- slides ---------- */
-.deck{
-  height:100dvh; overflow-y:scroll; scroll-snap-type:y mandatory;
-  scroll-behavior:smooth;
+html{
+  scroll-snap-type:y mandatory; scroll-behavior:smooth;
 }
+.deck{display:block}
 .slide{
-  min-height:100dvh; scroll-snap-align:start; scroll-snap-stop:always;
+  min-height:100svh; scroll-snap-align:start; scroll-snap-stop:always;
   display:flex; flex-direction:column; justify-content:center;
   padding:72px 56px 72px 96px; position:relative;
 }
@@ -321,7 +321,7 @@ strong{font-weight:500; color:var(--ink)}
 .slide.on .rv:nth-child(5){transition-delay:.28s}
 @media (prefers-reduced-motion:reduce){
   .rv{opacity:1; transform:none; transition:none}
-  .deck{scroll-behavior:auto}
+  html{scroll-behavior:auto; scroll-snap-type:none}
 }
 
 /* ---------- responsive ---------- */
@@ -728,7 +728,6 @@ strong{font-weight:500; color:var(--ink)}
   var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
   var rail = document.getElementById('rail');
   var cur = document.getElementById('cur');
-  var deck = document.getElementById('deck');
   document.getElementById('tot').textContent = String(slides.length).padStart(2,'0');
 
   slides.forEach(function(s, i){
@@ -751,7 +750,7 @@ strong{font-weight:500; color:var(--ink)}
         dots.forEach(function(d,j){ d.setAttribute('aria-current', j===i ? 'true':'false'); });
       }
     });
-  }, {threshold:[0.15,0.6], root: deck});
+  }, {threshold:[0.15,0.6]});
   slides.forEach(function(s){ io.observe(s); });
 
   function goto(dir){
