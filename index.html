@@ -106,7 +106,7 @@ html{scroll-behavior:smooth}
 .slide{
   min-height:100svh;
   display:flex; flex-direction:column; justify-content:center;
-  padding:72px 56px 72px 96px; position:relative;
+  padding:clamp(34px,6vh,72px) 56px clamp(34px,6vh,72px) 96px; position:relative;
 }
 .slide > .inner{width:100%; max-width:1000px; margin:0 auto}
 .slide.tint{background:var(--ground-2)}
@@ -114,19 +114,19 @@ html{scroll-behavior:smooth}
 /* ---------- type ---------- */
 .eyebrow{
   font-size:11px; letter-spacing:.3em; text-transform:uppercase;
-  color:var(--gold); font-weight:500; margin:0 0 22px;
+  color:var(--gold); font-weight:500; margin:0 0 clamp(12px,2.4vh,22px);
   display:flex; align-items:center; gap:14px;
 }
 .eyebrow::after{content:""; flex:1; height:1px; background:var(--gold-soft); max-width:220px}
 h1{
   font-family:'Bodoni Moda',Georgia,serif; font-weight:400;
-  font-size:clamp(2.6rem,6vw,4.6rem); line-height:1.02; letter-spacing:-.015em;
-  margin:0 0 18px; text-wrap:balance;
+  font-size:clamp(2.1rem,min(6vw,7.2vh),4.6rem); line-height:1.02; letter-spacing:-.015em;
+  margin:0 0 clamp(10px,2vh,18px); text-wrap:balance;
 }
 h2{
   font-family:'Bodoni Moda',Georgia,serif; font-weight:400;
-  font-size:clamp(2rem,4.2vw,3.2rem); line-height:1.08; letter-spacing:-.01em;
-  margin:0 0 20px; text-wrap:balance;
+  font-size:clamp(1.65rem,min(4.2vw,5.4vh),3.2rem); line-height:1.08; letter-spacing:-.01em;
+  margin:0 0 clamp(10px,2.2vh,20px); text-wrap:balance;
 }
 h2 em{font-style:italic; color:var(--rose)}
 h3{
@@ -134,10 +134,10 @@ h3{
   letter-spacing:.01em; margin:0 0 6px; color:var(--ink);
 }
 .lede{
-  font-size:clamp(1.05rem,1.6vw,1.3rem); color:var(--ink-soft); font-weight:300;
-  max-width:62ch; margin:0 0 12px; line-height:1.55;
+  font-size:clamp(1rem,min(1.6vw,2.2vh),1.3rem); color:var(--ink-soft); font-weight:300;
+  max-width:62ch; margin:0 0 clamp(8px,1.4vh,12px); line-height:1.55;
 }
-p{margin:0 0 14px; max-width:66ch}
+p{margin:0 0 clamp(8px,1.6vh,14px); max-width:66ch}
 .small{font-size:.88rem; color:var(--muted); max-width:70ch}
 .gold{color:var(--gold)}
 .rose{color:var(--rose)}
@@ -153,17 +153,17 @@ strong{font-weight:500; color:var(--ink)}
 }
 .monogram{
   font-family:'Bodoni Moda',Georgia,serif; font-style:italic; font-weight:400;
-  font-size:clamp(5rem,13vw,10rem); line-height:.85; color:var(--gold);
+  font-size:clamp(3.6rem,min(13vw,15vh),10rem); line-height:.85; color:var(--gold);
   margin:0 0 6px; letter-spacing:-.03em;
 }
 .cover h1{font-size:clamp(2.2rem,5.2vw,4rem)}
 .cover-meta{
-  display:flex; flex-wrap:wrap; gap:8px 28px; margin-top:36px;
+  display:flex; flex-wrap:wrap; gap:8px 28px; margin-top:clamp(16px,3.4vh,36px);
   font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);
 }
 
 /* ---------- grids ---------- */
-.grid{display:grid; gap:20px}
+.grid{display:grid; gap:clamp(12px,2.2vh,20px)}
 .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -171,11 +171,11 @@ strong{font-weight:500; color:var(--ink)}
 
 .card{
   background:var(--surface); border:1px solid var(--line);
-  padding:22px 22px 24px; box-shadow:var(--shadow);
+  padding:clamp(14px,2.4vh,22px) 22px clamp(15px,2.6vh,24px); box-shadow:var(--shadow);
 }
 .card .num{
-  font-family:'Bodoni Moda',Georgia,serif; font-size:2.1rem; line-height:1;
-  color:var(--gold); display:block; margin-bottom:10px; font-variant-numeric:tabular-nums;
+  font-family:'Bodoni Moda',Georgia,serif; font-size:clamp(1.6rem,3vh,2.1rem); line-height:1;
+  color:var(--gold); display:block; margin-bottom:clamp(5px,1.2vh,10px); font-variant-numeric:tabular-nums;
 }
 .card p{font-size:.94rem; color:var(--ink-soft); margin:0}
 .card p + p{margin-top:8px}
@@ -185,16 +185,16 @@ strong{font-weight:500; color:var(--ink)}
 
 /* ---------- shift table ---------- */
 .shift{display:grid; grid-template-columns:1fr auto 1fr; gap:0 26px; align-items:center}
-.shift > div{padding:14px 0; border-bottom:1px solid var(--line)}
+.shift > div{padding:clamp(8px,1.6vh,14px) 0; border-bottom:1px solid var(--line)}
 .shift .from{color:var(--muted); text-decoration:line-through; text-decoration-color:var(--rose-soft); font-size:.98rem}
 .shift .arrow{color:var(--gold); font-size:.9rem; border-bottom:1px solid var(--line)}
 .shift .to{font-weight:400; color:var(--ink); font-size:.98rem}
 
 /* ---------- ladder ---------- */
-.ladder{display:flex; flex-direction:column-reverse; gap:8px}
+.ladder{display:flex; flex-direction:column-reverse; gap:clamp(4px,.9vh,8px)}
 .rung{
   display:grid; grid-template-columns:auto 1fr auto; gap:20px; align-items:baseline;
-  padding:16px 22px; background:var(--surface); border:1px solid var(--line);
+  padding:clamp(6px,1.7vh,16px) 22px; background:var(--surface); border:1px solid var(--line);
   box-shadow:var(--shadow);
 }
 .rung .step{
@@ -206,14 +206,14 @@ strong{font-weight:500; color:var(--ink)}
   white-space:nowrap; font-variant-numeric:tabular-nums;
 }
 .rung .lbl{font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:2px}
-.rung .desc{font-size:.86rem; color:var(--muted); margin-top:3px}
+.rung .desc{font-size:.86rem; color:var(--muted); margin-top:2px}
 .r1{margin-right:24%} .r2{margin-right:16%} .r3{margin-right:8%} .r4{margin-right:0}
 
 /* ---------- funnel ---------- */
 .steps{display:flex; flex-direction:column}
 .step-row{
   display:grid; grid-template-columns:44px 1fr 1.15fr; gap:22px; align-items:start;
-  padding:13px 0; border-top:1px solid var(--line);
+  padding:clamp(7px,1.5vh,13px) 0; border-top:1px solid var(--line);
 }
 .step-row:last-child{border-bottom:1px solid var(--line)}
 .step-row .n{
@@ -226,7 +226,7 @@ strong{font-weight:500; color:var(--ink)}
 .step-row.hot .n{color:var(--rose)}
 
 /* ---------- pillars ---------- */
-.pillar{border-top:2px solid var(--gold-soft); padding-top:14px}
+.pillar{border-top:2px solid var(--gold-soft); padding-top:clamp(9px,1.6vh,14px)}
 .pillar .pct{
   font-family:'Bodoni Moda',serif; font-size:1.7rem; color:var(--rose); line-height:1;
   font-variant-numeric:tabular-nums;
@@ -237,7 +237,7 @@ strong{font-weight:500; color:var(--ink)}
 /* ---------- stats ---------- */
 .stat{text-align:left}
 .stat .v{
-  font-family:'Bodoni Moda',serif; font-size:clamp(2.2rem,4.4vw,3.4rem); line-height:1;
+  font-family:'Bodoni Moda',serif; font-size:clamp(1.7rem,min(4.4vw,5vh),3.4rem); line-height:1;
   color:var(--ink); font-variant-numeric:tabular-nums; display:block;
 }
 .stat .v small{font-size:.4em; color:var(--muted); font-family:'Jost',sans-serif; letter-spacing:.1em}
@@ -246,16 +246,16 @@ strong{font-weight:500; color:var(--ink)}
 
 /* ---------- timeline ---------- */
 .months{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--line)}
-.month{padding:22px 24px 26px; border-right:1px solid var(--line)}
+.month{padding:clamp(14px,2.4vh,22px) 24px clamp(16px,2.8vh,26px); border-right:1px solid var(--line)}
 .month:last-child{border-right:0}
 .month .mtag{
-  font-family:'Bodoni Moda',serif; font-size:2.4rem; color:var(--gold-soft); line-height:1;
+  font-family:'Bodoni Moda',serif; font-size:clamp(1.7rem,3.4vh,2.4rem); color:var(--gold-soft); line-height:1;
   display:block; margin-bottom:2px;
 }
-.month h3{margin-bottom:12px; color:var(--rose)}
+.month h3{margin-bottom:clamp(6px,1.4vh,12px); color:var(--rose)}
 .month ul{margin:0; padding:0; list-style:none}
 .month li{
-  font-size:.87rem; color:var(--ink-soft); padding:6px 0 6px 16px; position:relative;
+  font-size:.87rem; color:var(--ink-soft); padding:clamp(3px,.9vh,6px) 0 clamp(3px,.9vh,6px) 16px; position:relative;
   border-bottom:1px dotted var(--line);
 }
 .month li::before{content:"—"; position:absolute; left:0; color:var(--gold)}
@@ -266,28 +266,28 @@ strong{font-weight:500; color:var(--ink)}
   display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line);
   background:var(--surface); box-shadow:var(--shadow);
 }
-.price-block > div{padding:32px 34px}
+.price-block > div{padding:clamp(20px,3.4vh,32px) 34px}
 .price-block > div:first-child{border-right:1px solid var(--line)}
 .big-price{
-  font-family:'Bodoni Moda',serif; font-size:clamp(2.6rem,6vw,4rem); line-height:1;
+  font-family:'Bodoni Moda',serif; font-size:clamp(2rem,min(6vw,6vh),4rem); line-height:1;
   color:var(--rose); font-variant-numeric:tabular-nums;
 }
 .big-price small{font-size:.28em; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); font-family:'Jost',sans-serif; display:block; margin-top:10px}
 .incl{list-style:none; padding:0; margin:16px 0 0}
-.incl li{font-size:.88rem; color:var(--ink-soft); padding:5px 0 5px 20px; position:relative}
+.incl li{font-size:.88rem; color:var(--ink-soft); padding:clamp(2px,.8vh,5px) 0 clamp(2px,.8vh,5px) 20px; position:relative}
 .incl li::before{content:"·"; position:absolute; left:4px; color:var(--gold); font-size:1.4em; line-height:1}
 
 /* ---------- pull quote ---------- */
 .pull{
   font-family:'Bodoni Moda',Georgia,serif; font-style:italic; font-weight:400;
-  font-size:clamp(1.6rem,3.4vw,2.6rem); line-height:1.22; color:var(--ink);
+  font-size:clamp(1.4rem,min(3.4vw,4.4vh),2.6rem); line-height:1.22; color:var(--ink);
   max-width:22ch; margin:0; text-wrap:balance;
 }
 .pull .hl{color:var(--rose); font-style:normal}
 
 /* ---------- math ---------- */
 .math{display:grid; grid-template-columns:repeat(4,1fr); align-items:end; gap:18px; margin-top:8px}
-.math .cell{border-bottom:1px solid var(--line); padding-bottom:14px}
+.math .cell{border-bottom:1px solid var(--line); padding-bottom:clamp(8px,1.6vh,14px)}
 .math .op{
   font-family:'Bodoni Moda',serif; font-size:1.6rem; color:var(--gold-soft);
   text-align:center; border:0;
@@ -296,20 +296,20 @@ strong{font-weight:500; color:var(--ink)}
 /* ---------- checklist ---------- */
 .check{list-style:none; padding:0; margin:0; display:grid; gap:2px}
 .check li{
-  padding:13px 0 13px 34px; position:relative; border-bottom:1px solid var(--line);
+  padding:clamp(7px,1.6vh,13px) 0 clamp(7px,1.6vh,13px) 34px; position:relative; border-bottom:1px solid var(--line);
   font-size:.98rem; color:var(--ink-soft);
 }
 .check li::before{
-  content:""; position:absolute; left:6px; top:19px; width:9px; height:9px;
+  content:""; position:absolute; left:6px; top:calc(clamp(7px,1.6vh,13px) + .7em); width:9px; height:9px;
   background:var(--gold); transform:rotate(45deg);
 }
 
 /* ---------- close ---------- */
 .close-card{
-  border:1px solid var(--gold-soft); background:var(--surface); padding:30px 34px;
+  border:1px solid var(--gold-soft); background:var(--surface); padding:clamp(18px,3.2vh,30px) 34px;
   box-shadow:var(--shadow); max-width:440px;
 }
-.close-card .row{display:flex; justify-content:space-between; gap:20px; padding:9px 0; border-bottom:1px solid var(--line); font-size:.92rem}
+.close-card .row{display:flex; justify-content:space-between; gap:20px; padding:clamp(5px,1.1vh,9px) 0; border-bottom:1px solid var(--line); font-size:.92rem}
 .close-card .row:last-child{border-bottom:0}
 .close-card .row span:first-child{color:var(--muted)}
 
@@ -326,6 +326,13 @@ strong{font-weight:500; color:var(--ink)}
 }
 
 /* ---------- responsive ---------- */
+/* Ventanas bajas (portátil chico o navegador con muchas barras): se aprieta
+   un punto más para que la lámina siga entrando entera. */
+@media (max-height:640px){
+  body{font-size:15px}
+  .slide{padding-top:clamp(22px,4vh,72px); padding-bottom:clamp(22px,4vh,72px)}
+  .card p{font-size:.88rem}
+}
 @media (max-width:900px){
   body{font-size:16px}
   .slide{padding:56px 24px 64px 62px}
@@ -376,12 +383,12 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">Empecemos por lo que no hay que arreglar</p>
     <h2 class="rv">Tu marca ya está<br>resuelta. <em>No la vamos a tocar.</em></h2>
-    <div class="grid g3 rv" style="margin-top:34px">
+    <div class="grid g3 rv" style="margin-top:clamp(12px,2.6vh,34px)">
       <div class="card"><h3>Identidad</h3><p>Manual aplicado con disciplina: el monograma dorado, el rosa palo, el mármol. Se reconoce de lejos. Cero soles en rebranding.</p></div>
       <div class="card"><h3>El local</h3><p>Sillones rosas, neón, pampas, luz cálida. Es un set de fotografía que ya está pagado y hoy aparece solo de fondo.</p></div>
       <div class="card"><h3>El ritual</h3><p>Té servido en bandeja, snacks, atención personalizada, pet friendly. Nadie en tu rango de precio hace eso.</p></div>
     </div>
-    <p class="small rv" style="margin-top:26px">Lo que falta no es diseño. Es sistema.</p>
+    <p class="small rv" style="margin-top:clamp(12px,2.6vh,26px)">Lo que falta no es diseño. Es sistema.</p>
   </div>
 </section>
 
@@ -390,7 +397,7 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">La tesis</p>
     <p class="pull rv">Este local está para <span class="hl">cobrar el doble</span> de lo que cobra.</p>
-    <p class="lede rv" style="margin-top:28px">El problema no es cuánta gente entra. Es cuánto deja cada una que entra — y cuántas se pierden entre el mensaje y la cita.</p>
+    <p class="lede rv" style="margin-top:clamp(12px,2.6vh,28px)">El problema no es cuánta gente entra. Es cuánto deja cada una que entra — y cuántas se pierden entre el mensaje y la cita.</p>
   </div>
 </section>
 
@@ -399,7 +406,7 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">Diagnóstico</p>
     <h2 class="rv">Cuatro cosas que están<br>frenando el crecimiento</h2>
-    <div class="grid g2 rv" style="margin-top:32px">
+    <div class="grid g2 rv" style="margin-top:clamp(12px,2.6vh,32px)">
       <div class="card prob"><span class="num">01</span><h3>El feed es un catálogo de descuentos</h3><p>«Promociones de junio», «Black Friday», «Promo 1». Casi toda la comunicación es precio.</p><p><strong>Costo:</strong> la clienta aprende a esperar la rebaja en vez de reservar hoy. Y atrae a quien compara por soles, no por resultado.</p></div>
       <div class="card prob"><span class="num">02</span><h3>Se vende lo barato y se calla lo rentable</h3><p>Uñas de S/30–55 ocupan el feed. Limpieza facial, masaje y medicina estética casi no aparecen.</p><p><strong>Costo:</strong> el servicio de mayor margen es invisible para las 2,605 personas que ya siguen la cuenta.</p></div>
       <div class="card prob"><span class="num">03</span><h3>No hay sistema de captación</h3><p>Sin enlace en la biografía, sin reserva en línea, sin ficha de Google, sin respuesta guionada.</p><p><strong>Costo:</strong> el mensaje del domingo a las nueve de la noche se contesta el lunes. Para entonces ya escribió a otros tres sitios.</p></div>
@@ -413,13 +420,13 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">El giro</p>
     <h2 class="rv">De salón de uñas<br><em>a centro de estética</em></h2>
-    <div class="shift rv" style="margin-top:34px">
+    <div class="shift rv" style="margin-top:clamp(12px,2.6vh,34px)">
       <div class="from">Un lugar donde las uñas salen a buen precio</div><div class="arrow">→</div><div class="to">Un centro especializado donde te atienden a ti, no a tu turno</div>
       <div class="from">Promociones que se renuevan cada mes</div><div class="arrow">→</div><div class="to">Rituales con nombre propio, precio estable y agenda limitada</div>
       <div class="from">Un local bonito</div><div class="arrow">→</div><div class="to">Una hora del día que es tuya: té, música, tu perro puede venir</div>
       <div class="from">Se anuncian precios</div><div class="arrow">→</div><div class="to">Se anuncian resultados, criterio y experiencia</div>
     </div>
-    <p class="small rv" style="margin-top:28px">La regla que ordena todo el plan: <strong>se dejan de dar descuentos y se empiezan a dar bonificaciones.</strong> En vez de «20 % menos en limpieza facial», «tu primera limpieza facial incluye diseño de cejas». Mismo costo, cero daño al precio de lista, y la clienta conoce un segundo servicio.</p>
+    <p class="small rv" style="margin-top:clamp(12px,2.6vh,28px)">La regla que ordena todo el plan: <strong>se dejan de dar descuentos y se empiezan a dar bonificaciones.</strong> En vez de «20 % menos en limpieza facial», «tu primera limpieza facial incluye diseño de cejas». Mismo costo, cero daño al precio de lista, y la clienta conoce un segundo servicio.</p>
   </div>
 </section>
 
@@ -428,7 +435,7 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">Palanca 1 — La escalera de valor</p>
     <h2 class="rv">Los cuatro escalones<br>ya existen. Falta el puente.</h2>
-    <div class="ladder rv" style="margin-top:30px">
+    <div class="ladder rv" style="margin-top:clamp(12px,2.6vh,30px)">
       <div class="rung r1"><span class="step">01</span><div><span class="lbl">Entrada · cada 21 días</span><strong>Uñas</strong> — gel, acrílicas, rubber, soft gel, poligel, acripie<div class="desc">Trae volumen y recurrencia. Es la puerta, no el negocio.</div></div><span class="price">S/30–55</span></div>
       <div class="rung r2"><span class="step">02</span><div><span class="lbl">Ascenso · cada 30–45 días</span><strong>Pack Mirada</strong> — lifting de pestañas, visagismo y laminado de cejas<div class="desc">Primer salto de ticket. Se ofrece siempre a quien viene por uñas.</div></div><span class="price">S/60–65</span></div>
       <div class="rung r3"><span class="step">03</span><div><span class="lbl">Cuidado · cada 30–45 días</span><strong>Limpieza facial y masaje</strong><div class="desc">Aquí está el margen — y la experiencia que sí se puede filmar.</div></div><span class="price">S/80–150</span></div>
@@ -442,7 +449,7 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">Los tres puentes</p>
     <h2 class="rv">Cómo se mueve una clienta<br>de un escalón al siguiente</h2>
-    <div class="grid g3 rv" style="margin-top:32px">
+    <div class="grid g3 rv" style="margin-top:clamp(12px,2.6vh,32px)">
       <div class="card"><span class="num">01</span><h3>Bonificación cruzada</h3><p>Quien reserva uñas por primera vez recibe diseño de cejas de cortesía. Costo real bajo. Conoce el escalón 2 el mismo día.</p></div>
       <div class="card"><span class="num">02</span><h3>Guion de mostrador</h3><p>Al cerrar el servicio se agenda el retoque a 21 días ahí mismo y se menciona un solo servicio superior. Una frase, no un discurso.</p></div>
       <div class="card"><span class="num">03</span><h3>Packs, no promociones</h3><p>«Ritual Ah», «Pack Mirada», «Mantenimiento mensual». Un pack se vende todo el año; una promo caduca y obliga a inventar otra.</p></div>
@@ -455,7 +462,7 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">Palanca 2 — El sistema de captación</p>
     <h2 class="rv">Siete pasos, uno solo<br>de ellos es el anuncio</h2>
-    <div class="steps rv" style="margin-top:28px">
+    <div class="steps rv" style="margin-top:clamp(12px,2.6vh,28px)">
       <div class="step-row"><span class="n">01</span><span class="what">Ve un reel del local o un anuncio de alcance local</span><span class="how">Contenido orgánico + campaña de reconocimiento</span></div>
       <div class="step-row"><span class="n">02</span><span class="what">Entra al perfil y encuentra precios, horario y botón de WhatsApp</span><span class="how">Biografía, enlace y destacadas ordenadas</span></div>
       <div class="step-row"><span class="n">03</span><span class="what">Escribe por WhatsApp</span><span class="how">Campaña de Mensajes + WhatsApp Business</span></div>
@@ -472,7 +479,7 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">Dónde se pierde la plata hoy</p>
     <p class="pull rv">Una conversación contestada al día siguiente vale <span class="hl">menos de la mitad</span>.</p>
-    <p class="lede rv" style="margin-top:26px">Instalar WhatsApp Business con respuestas rápidas, catálogo y horario de atención cuesta cero soles. Es lo primero que se hace, antes que cualquier anuncio.</p>
+    <p class="lede rv" style="margin-top:clamp(12px,2.6vh,26px)">Instalar WhatsApp Business con respuestas rápidas, catálogo y horario de atención cuesta cero soles. Es lo primero que se hace, antes que cualquier anuncio.</p>
     <p class="small rv">Pautar sin este paso resuelto es pagar por mensajes que nadie contesta.</p>
   </div>
 </section>
@@ -482,14 +489,14 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">Palanca 3 — Contenido</p>
     <h2 class="rv">Cinco pilares que rotan<br>todas las semanas</h2>
-    <div class="grid g5 rv" style="margin-top:34px">
+    <div class="grid g5 rv" style="margin-top:clamp(12px,2.6vh,34px)">
       <div class="pillar"><span class="pct">30%</span><h3>Ritual</h3><p>El local, el té, la música, las manos trabajando. Video lento, sonido ambiente, sin voz.</p></div>
       <div class="pillar"><span class="pct">25%</span><h3>Autoridad</h3><p>Alejandra explicando: qué es visagismo, cada cuánto va un facial, por qué no arrancar el gel.</p></div>
       <div class="pillar"><span class="pct">20%</span><h3>Resultado</h3><p>Antes y después de uñas y cejas, macro del detalle, la reacción de la clienta.</p></div>
       <div class="pillar"><span class="pct">15%</span><h3>Clienta</h3><p>Testimonios de 15 segundos, reacciones reales, la clienta con su perro.</p></div>
       <div class="pillar"><span class="pct">10%</span><h3>Oferta</h3><p>Packs, agenda disponible, cómo reservar. Solo 10 %: más que eso y vuelve el feed-catálogo.</p></div>
     </div>
-    <p class="small rv" style="margin-top:30px"><strong>Cada mes:</strong> un día de producción en el local · 12 publicaciones editadas (6 reels, 4 carruseles, 2 estáticos) · guion de historias 5 días por semana · destacadas y portadas al día.</p>
+    <p class="small rv" style="margin-top:clamp(12px,2.6vh,30px)"><strong>Cada mes:</strong> un día de producción en el local · 12 publicaciones editadas (6 reels, 4 carruseles, 2 estáticos) · guion de historias 5 días por semana · destacadas y portadas al día.</p>
   </div>
 </section>
 
@@ -498,8 +505,8 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">Lo que ya tienes y no estás cobrando</p>
     <h2 class="rv">Pet friendly no es<br>un detalle simpático. <em>Es la razón.</em></h2>
-    <p class="lede rv" style="margin-top:22px">Probablemente eres el único centro de estética de Chiclayo que lo dice abiertamente. Para una dueña de perro con la agenda apretada, eso no es un plus: es el motivo por el que elige AH y no el salón de la esquina.</p>
-    <div class="grid g2 rv" style="margin-top:26px">
+    <p class="lede rv" style="margin-top:clamp(12px,2.6vh,22px)">Probablemente eres el único centro de estética de Chiclayo que lo dice abiertamente. Para una dueña de perro con la agenda apretada, eso no es un plus: es el motivo por el que elige AH y no el salón de la esquina.</p>
+    <div class="grid g2 rv" style="margin-top:clamp(12px,2.6vh,26px)">
       <div class="card"><h3>Deja de ser una destacada</h3><p>Pasa a ser pilar de contenido: un reel al mes de una clienta llegando con su mascota. Es el formato que más se comparte y el que más se sale del alcance normal.</p></div>
       <div class="card"><h3>El ritual se nombra</h3><p>El té y los snacks en bandeja dorada entran en la descripción de cada servicio. No es un gesto: es la diferencia entre S/45 y S/80.</p></div>
     </div>
@@ -511,17 +518,17 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">Publicidad en Meta</p>
     <h2 class="rv">Tres campañas,<br>un solo destino</h2>
-    <div class="grid g3 rv" style="margin-top:30px">
+    <div class="grid g3 rv" style="margin-top:clamp(12px,2.6vh,30px)">
       <div class="card"><span class="num">55%</span><h3>Conversación</h3><p>Objetivo Mensajes hacia WhatsApp. Mujeres de 22 a 45 años en un radio de 5 km de Urb. Villarreal.</p></div>
       <div class="card"><span class="num">25%</span><h3>Reconocimiento local</h3><p>Alcance y reproducciones. Mujeres de 20 a 50, radio de 8 km, intereses de belleza y cuidado personal.</p></div>
       <div class="card"><span class="num">20%</span><h3>Remarketing</h3><p>Quien vio más de la mitad de un video, entró al perfil o escribió sin agendar en los últimos 30 días.</p></div>
     </div>
-    <div class="grid g3 rv" style="margin-top:30px">
+    <div class="grid g3 rv" style="margin-top:clamp(12px,2.6vh,30px)">
       <div class="stat"><span class="v">S/300</span><span class="k">Mínimo viable</span><span class="from-to">60–90 conversaciones · 20–30 citas</span></div>
       <div class="stat"><span class="v">S/500</span><span class="k">Recomendado</span><span class="from-to">100–150 conversaciones · 35–50 citas</span></div>
       <div class="stat"><span class="v">S/800</span><span class="k">Agresivo</span><span class="from-to">170–250 conversaciones · 60–85 citas</span></div>
     </div>
-    <p class="small rv" style="margin-top:24px">Sobre un costo por conversación de S/3 a S/5 y una conversión a cita del 35 % con el guion instalado. Los primeros 15 días el algoritmo aprende: el costo real se conoce en la tercera semana. <strong>La pauta la pagas tú directo a Meta con tu tarjeta.</strong></p>
+    <p class="small rv" style="margin-top:clamp(12px,2.6vh,24px)">Sobre un costo por conversación de S/3 a S/5 y una conversión a cita del 35 % con el guion instalado. Los primeros 15 días el algoritmo aprende: el costo real se conoce en la tercera semana. <strong>La pauta la pagas tú directo a Meta con tu tarjeta.</strong></p>
   </div>
 </section>
 
@@ -530,7 +537,7 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">Reglas del rubro</p>
     <h2 class="rv">Lo que Meta rechaza<br>y la ley exige</h2>
-    <div class="grid g2 rv" style="margin-top:30px">
+    <div class="grid g2 rv" style="margin-top:clamp(12px,2.6vh,30px)">
       <div class="card"><h3>Antes y después de piel</h3><p>Meta rechaza sistemáticamente los resultados corporales y dermatológicos. En uñas y cejas sí pasan. Los faciales se comunican con proceso y experiencia.</p></div>
       <div class="card"><h3>Nada de señalar defectos</h3><p>«¿Tienes acné?» activa la política de atributos personales. Se redacta en positivo: «Piel limpia y descansada en una sesión».</p></div>
       <div class="card"><h3>Autorización de imagen</h3><p>Ley 29733: ninguna clienta se publica sin firma. Entrego el formato; se hace firmar en recepción.</p></div>
@@ -544,7 +551,7 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">El plan, mes a mes</p>
     <h2 class="rv">90 días</h2>
-    <div class="months rv" style="margin-top:26px">
+    <div class="months rv" style="margin-top:clamp(12px,2.6vh,26px)">
       <div class="month">
         <span class="mtag">01</span><h3>Fundación</h3>
         <ul>
@@ -589,7 +596,7 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">Cómo se mide</p>
     <h2 class="rv">Siete números.<br><em>Hoy no existe ninguno.</em></h2>
-    <div class="grid g4 rv" style="margin-top:34px">
+    <div class="grid g4 rv" style="margin-top:clamp(12px,2.6vh,34px)">
       <div class="stat"><span class="v">S/80</span><span class="k">Ticket promedio</span><span class="from-to">desde ≈ S/45</span></div>
       <div class="stat"><span class="v">150</span><span class="k">Conversaciones / mes</span><span class="from-to">desde 0 medidas</span></div>
       <div class="stat"><span class="v">35<small>%</small></span><span class="k">Conversación → cita</span><span class="from-to">meta a 90 días</span></div>
@@ -598,7 +605,7 @@ strong{font-weight:500; color:var(--ink)}
       <div class="stat"><span class="v">30<small>+</small></span><span class="k">Reseñas en Google</span><span class="from-to">desde una ficha sin trabajar</span></div>
       <div class="stat"><span class="v">45<small>%</small></span><span class="k">Vuelven antes de 60 días</span><span class="from-to">desde 0 medidas</span></div>
     </div>
-    <p class="small rv" style="margin-top:28px">Seguidores y likes se reportan porque interesan, pero no son la meta: 500 seguidores de Lima no valen una clienta de Villarreal.</p>
+    <p class="small rv" style="margin-top:clamp(12px,2.6vh,28px)">Seguidores y likes se reportan porque interesan, pero no son la meta: 500 seguidores de Lima no valen una clienta de Villarreal.</p>
   </div>
 </section>
 
@@ -628,10 +635,10 @@ strong{font-weight:500; color:var(--ink)}
           <li>Puedes empezar en S/300 y subir con datos</li>
           <li>Ves cada sol gastado en tu propia cuenta</li>
         </ul>
-        <p class="small" style="margin-top:22px"><strong>Rebranding: S/0.</strong> Tu marca ya está hecha. Cobrártela sería cobrarte algo que ya pagaste.</p>
+        <p class="small" style="margin-top:clamp(12px,2.6vh,22px)"><strong>Rebranding: S/0.</strong> Tu marca ya está hecha. Cobrártela sería cobrarte algo que ya pagaste.</p>
       </div>
     </div>
-    <p class="small rv" style="margin-top:22px">El Business Manager, la fanpage, el píxel y la cuenta publicitaria quedan siempre a nombre de AH Estética. Sin permanencia mínima.</p>
+    <p class="small rv" style="margin-top:clamp(12px,2.6vh,22px)">El Business Manager, la fanpage, el píxel y la cuenta publicitaria quedan siempre a nombre de AH Estética. Sin permanencia mínima.</p>
   </div>
 </section>
 
@@ -640,15 +647,15 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">Las cuentas</p>
     <h2 class="rv">Qué tiene que pasar<br>para que esto se pague solo</h2>
-    <div class="math rv" style="margin-top:34px">
+    <div class="math rv" style="margin-top:clamp(12px,2.6vh,34px)">
       <div class="cell"><span class="stat"><span class="v">S/1,000</span><span class="k">Costo mensual</span></span></div>
       <div class="cell op">÷</div>
       <div class="cell"><span class="stat"><span class="v">S/45</span><span class="k">Ticket actual</span></span></div>
       <div class="cell"><span class="stat"><span class="v">= 22</span><span class="k">Clientas nuevas para empatar</span></span></div>
     </div>
-    <p class="lede rv" style="margin-top:34px">Con S/500 de pauta se estiman 100 a 150 conversaciones al mes. Al 35 % de cierre son <strong>35 a 50 citas</strong>. Y eso es solo el primer corte de pelo del número real:</p>
-    <p class="pull rv" style="margin-top:22px; max-width:26ch">Una clienta de uñas que vuelve cada 21 días deja <span class="hl">S/765 al año</span>.</p>
-    <p class="small rv" style="margin-top:18px">No estás pagando S/1,000 por publicaciones. Estás pagando por que una clienta nueva valga 765 en vez de 45.</p>
+    <p class="lede rv" style="margin-top:clamp(12px,2.6vh,34px)">Con S/500 de pauta se estiman 100 a 150 conversaciones al mes. Al 35 % de cierre son <strong>35 a 50 citas</strong>. Y eso es solo el primer corte de pelo del número real:</p>
+    <p class="pull rv" style="margin-top:clamp(12px,2.6vh,22px); max-width:26ch">Una clienta de uñas que vuelve cada 21 días deja <span class="hl">S/765 al año</span>.</p>
+    <p class="small rv" style="margin-top:clamp(12px,2.6vh,18px)">No estás pagando S/1,000 por publicaciones. Estás pagando por que una clienta nueva valga 765 en vez de 45.</p>
   </div>
 </section>
 
@@ -657,7 +664,7 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">Honestidad antes de firmar</p>
     <h2 class="rv">La pauta genera citas.<br><em>No genera cabinas.</em></h2>
-    <p class="lede rv" style="margin-top:22px">Si hoy atiendes con una sola especialista por turno, S/500 de publicidad pueden llenarte la agenda en dos semanas y empezar a rebotar clientas — que es peor que no anunciar.</p>
+    <p class="lede rv" style="margin-top:clamp(12px,2.6vh,22px)">Si hoy atiendes con una sola especialista por turno, S/500 de publicidad pueden llenarte la agenda en dos semanas y empezar a rebotar clientas — que es peor que no anunciar.</p>
     <p class="lede rv">Por eso antes de subir el presupuesto revisamos juntos cuántas citas al día puedes atender de verdad. Prefiero crecer contigo despacio que quemarte la reputación rápido.</p>
   </div>
 </section>
@@ -667,7 +674,7 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">Lo que necesito de tu lado</p>
     <h2 class="rv">Cinco cosas.<br>Ninguna cuesta dinero.</h2>
-    <ul class="check rv" style="margin-top:30px">
+    <ul class="check rv" style="margin-top:clamp(12px,2.6vh,30px)">
       <li>Medio turno al mes disponible para la producción en el local.</li>
       <li>Contestar el WhatsApp en horario de atención, con el guion que te entrego.</li>
       <li>Pedirle la reseña de Google a cada clienta que atiendes.</li>
@@ -686,7 +693,7 @@ strong{font-weight:500; color:var(--ink)}
       <div class="card"><span class="num">Mes 2</span><h3>Por costo y citas</h3><p>Costo por conversación y citas agendadas. Si el costo no baja de S/5, lo revisamos juntos y decides.</p></div>
       <div class="card"><span class="num">Mes 3</span><h3>Por ticket y recompra</h3><p>Ticket promedio y clientas que vuelven. Es el número que dice si el reposicionamiento funcionó.</p></div>
     </div>
-    <p class="small rv" style="margin-top:30px">Sin permanencia forzada. Cualquiera de los dos puede terminar avisando por escrito con 15 días.</p>
+    <p class="small rv" style="margin-top:clamp(12px,2.6vh,30px)">Sin permanencia forzada. Cualquiera de los dos puede terminar avisando por escrito con 15 días.</p>
   </div>
 </section>
 
@@ -695,7 +702,7 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <p class="eyebrow rv">Resumiendo</p>
     <h2 class="rv">Tres frases y ya</h2>
-    <div class="grid g3 rv" style="margin-top:32px">
+    <div class="grid g3 rv" style="margin-top:clamp(12px,2.6vh,32px)">
       <div class="card"><span class="num">01</span><p><strong>Tu marca no se toca.</strong> Está resuelta y le costó. Lo que falta es sistema, no diseño.</p></div>
       <div class="card"><span class="num">02</span><p><strong>Se deja de vender barato.</strong> Uñas es la puerta; el negocio está en el facial y en el ritual que ya das gratis.</p></div>
       <div class="card"><span class="num">03</span><p><strong>Nadie se pierde otra vez.</strong> Anuncio, respuesta en 10 minutos, recordatorio, reseña y regreso a los 21 días.</p></div>
@@ -708,13 +715,13 @@ strong{font-weight:500; color:var(--ink)}
   <div class="inner">
     <div class="rv monogram" style="font-size:clamp(3.4rem,8vw,6rem)">Ah</div>
     <h2 class="rv">Empezamos cuando digas.</h2>
-    <div class="close-card rv" style="margin-top:26px">
+    <div class="close-card rv" style="margin-top:clamp(12px,2.6vh,26px)">
       <div class="row"><span>Gestión mensual</span><span><strong>S/1,000</strong></span></div>
       <div class="row"><span>Pauta sugerida (directo a Meta)</span><span><strong>S/500</strong></span></div>
       <div class="row"><span>Rebranding</span><span><strong>S/0</strong></span></div>
       <div class="row"><span>Permanencia mínima</span><span><strong>Ninguna</strong></span></div>
     </div>
-    <div class="cover-meta rv" style="margin-top:30px">
+    <div class="cover-meta rv" style="margin-top:clamp(12px,2.6vh,30px)">
       <span class="gold">Dree Studio</span>
       <span>Christian Andree Olivera Romero</span>
       <span>christian.olivera.r@gmail.com</span>
@@ -736,29 +743,23 @@ strong{font-weight:500; color:var(--ink)}
     var b = document.createElement('button');
     b.type = 'button';
     b.setAttribute('aria-label', 'Lámina ' + (i+1));
-    b.addEventListener('click', function(){
-      s.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
-    });
+    b.addEventListener('click', function(){ go(i); });
     rail.appendChild(b);
   });
   var dots = Array.prototype.slice.call(rail.children);
 
   var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting) e.target.classList.add('on');
-      if(e.intersectionRatio > 0.55){
-        var i = slides.indexOf(e.target);
-        cur.textContent = String(i+1).padStart(2,'0');
-        dots.forEach(function(d,j){ d.setAttribute('aria-current', j===i ? 'true':'false'); });
-      }
-    });
-  }, {threshold:[0.15,0.6]});
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('on'); });
+  }, {threshold:0.15});
   slides.forEach(function(s){ io.observe(s); });
 
-  // El índice se deriva de la posición real de scroll, no del observador:
-  // durante un desplazamiento suave el observador reporta láminas intermedias
-  // y la navegación terminaba saltando hacia atrás.
-  function current(){
+  // El índice vive en una variable, no se recalcula desde el scroll en cada
+  // pulsación: durante un desplazamiento suave la posición todavía es la
+  // anterior, y flecha-flecha-flecha rápido terminaba avanzando una sola
+  // lámina. Tras cada scroll (del usuario o nuestro) se resincroniza.
+  var idx = 0, resync;
+
+  function nearest(){
     var y = window.scrollY, best = 0, dist = Infinity;
     slides.forEach(function(s, i){
       var d = Math.abs(s.offsetTop - y);
@@ -766,17 +767,32 @@ strong{font-weight:500; color:var(--ink)}
     });
     return best;
   }
-  function goto(dir){
-    var n = Math.min(slides.length-1, Math.max(0, current() + dir));
-    slides[n].scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto':'smooth'});
+  function mark(i){
+    cur.textContent = String(i+1).padStart(2,'0');
+    dots.forEach(function(d,j){ d.setAttribute('aria-current', j===i ? 'true':'false'); });
   }
-  window.addEventListener('load', function(){ window.scrollTo(0,0); });
+  function go(n){
+    idx = Math.min(slides.length-1, Math.max(0, n));
+    mark(idx);
+    window.scrollTo({
+      top: slides[idx].offsetTop,
+      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    });
+  }
+
+  window.addEventListener('scroll', function(){
+    clearTimeout(resync);
+    resync = setTimeout(function(){ idx = nearest(); mark(idx); }, 140);
+  }, {passive:true});
+
+  window.addEventListener('load', function(){ window.scrollTo(0,0); idx = 0; mark(0); });
 
   document.addEventListener('keydown', function(e){
-    if(['ArrowRight','ArrowDown','PageDown',' '].indexOf(e.key)>-1){ e.preventDefault(); goto(1); }
-    if(['ArrowLeft','ArrowUp','PageUp'].indexOf(e.key)>-1){ e.preventDefault(); goto(-1); }
-    if(e.key==='Home'){ e.preventDefault(); slides[0].scrollIntoView(); }
-    if(e.key==='End'){ e.preventDefault(); slides[slides.length-1].scrollIntoView(); }
+    if(e.metaKey || e.ctrlKey || e.altKey) return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].indexOf(e.key)>-1){ e.preventDefault(); go(idx+1); }
+    if(['ArrowLeft','ArrowUp','PageUp'].indexOf(e.key)>-1){ e.preventDefault(); go(idx-1); }
+    if(e.key==='Home'){ e.preventDefault(); go(0); }
+    if(e.key==='End'){ e.preventDefault(); go(slides.length-1); }
   });
 })();
 </script>
